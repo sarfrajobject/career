@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="">serefe</a>
+    </div>
+    <ul class="nav navbar-nav">
+      
+        <ul class="dropdown-menu">
+      
+        </ul>
+      </li>
+   
+    </ul>
+     <ul class="nav navbar-nav navbar-right">
+      <li ><a href="career">Explore Careers</a></li>
+      <li ><a href="career">Coaching & Counseling</a></li>
+      <li><a href="accounts/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+
+      <li><a href=""><span class="glyphicon glyphicon-user">
+      {% if user.is_authenticated %}
+        <li>Hello: {{ user.get_username }}</li>
+        
+        <a href=""><span class="accounts/register"></span> </a></li>
+      <li><a href="accounts/logout">Logout</a></li>
+      {% else %}
+      <li><a href="accounts/login">Login</a></li>
+      {% endif %}
+      </ul>
+
+
+  </div>
+  <div class="">
+                <img src="{% static 'images/senior-level-of-Job-acreaty.jpg' %}" class="d-block w-100" alt="Smiley face" height="600" width="1280">
+            </div>
+</nav>
+<h2 style="text-align:center">about Serefe</h2>
+{% for Blog in a %}
+<div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="fakeimg">
+          <img src="{{ Blog.image_url }}" height="300" width="360" >
+        </div>
+        <hr class="hidden-sm hidden-md hidden-lg">
+      </div>
+      <div class="col-sm-8">
+            <h4> {{ Blog.Description }}</h4>
+        <br>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+</body>
+</html>
